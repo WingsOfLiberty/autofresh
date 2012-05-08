@@ -18,7 +18,7 @@ var reload_tabs = function() {
 
 var check = function()
 {
-  $.getJSON('http://fedev.utah.trulia.com/~dwest/refreshment/refresh.php',
+  $.getJSON('http://fedev.utah.trulia.com/~dwest/refreshment/sentinel.php',
             function(data)
             {
               if (data.success)
