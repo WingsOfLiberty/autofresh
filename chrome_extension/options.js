@@ -1,34 +1,39 @@
 
-// Saves options to localStorage.
 function save_options() {
-  var select = document.getElementById("color");
-  var color = select.children[select.selectedIndex].value;
-  localStorage["favorite_color"] = color;
+  console.log(localStorage);
+  var $pattern = $("input[name='match_pattern']");
+  var pattern = $.trim($pattern.val());
+  if (pattern === "")
+  {
+    return alert("No match pattern specified");
+  }
 
-  // Update status to let user know options were saved.
-  var status = document.getElementById("status");
-  status.innerHTML = "Options Saved.";
-  setTimeout(function() {
-    status.innerHTML = "";
-  }, 750);
+  var $name = $("input[name='match_pattern_name']");
+  var name = $.trim($name.val());
+  if (name === "")
+  {
+    return alert("No name specified for match pattern");
+  }
+  var current_patterns = localStorage['match_patterns'];
+  if (typeof(current_patterns) === 'undefined')
+  {
+    current_patterns = {};
+  }
+  else
+  {
+    current_patterns = JSON.parse(current_patterns);
+  }
+  current_patterns[name] = { 'name' : name,
+                            'active' : true,
+                            'pattern' : pattern };
+  console.log(JSON.stringify(current_patterns));
+  localStorage['match_patterns'] = JSON.stringify(current_patterns);
 }
-
-// Restores select box state to saved value from localStorage.
-function restore_options() {
-  var favorite = localStorage["favorite_color"];
-  if (!favorite) {
-    return;
-  }
-  var select = document.getElementById("color");
-  for (var i = 0; i < select.children.length; i++) {
-    var child = select.children[i];
-    if (child.value == favorite) {
-      child.selected = "true";
-      break;
-    }
-  }
+function show_config()
+{
+  //TODO
 }
 $(document).ready(function() {
-  restore_options();
   $('button').click(save_options);
+  show_config();
 });

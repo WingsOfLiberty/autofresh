@@ -3,16 +3,20 @@
 <script src="jquery-1.7.2.min.js"></script>
 <script src="options.js"></script>
 <body>
-
-Favorite Color:
-<select id="color">
- <option value="red">red</option>
- <option value="green">green</option>
- <option value="blue">blue</option>
- <option value="yellow">yellow</option>
-</select>
-<br/><br/>
-<button>Save</button>
-<div id="status"></div>
+<style>
+  input {
+    width: 500px;
+  }
+</style>
+<h1>Autofresh Configuration</h1>
+<p>
+  Add match patterns here. If a match pattern is active, all tabs whose url match that pattern will refresh when you save a file.
+</p>
+<input type="text" name="match_pattern" placeholder="Match Pattern"/>
+<br/>
+<input type="text" name="match_pattern_name" placeholder="Pattern name (e.g., 'development', 'current branch', 'github project')"/>
+<br/>
+<button>Add</button>
+<div id="match_pattern_list"></div>
 </body>
 </html>
