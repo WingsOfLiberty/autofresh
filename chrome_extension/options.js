@@ -1,37 +1,64 @@
 
 function save_options() {
-  console.log(localStorage);
   var $pattern = $("input[name='match_pattern']");
   var pattern = $.trim($pattern.val());
   if (pattern === "")
   {
     return alert("No match pattern specified");
   }
-
+  try 
+  {
+    var regexp = new RegExp(pattern);
+  }
+  catch(e) 
+  {
+    return alert("Invalid regular expression /" + pattern + "/");
+  }
   var $name = $("input[name='match_pattern_name']");
   var name = $.trim($name.val());
   if (name === "")
   {
     return alert("No name specified for match pattern");
   }
-  var current_patterns = localStorage['match_patterns'];
-  if (typeof(current_patterns) === 'undefined')
-  {
-    current_patterns = {};
-  }
-  else
-  {
-    current_patterns = JSON.parse(current_patterns);
-  }
-  current_patterns[name] = { 'name' : name,
+  $pattern.val('');
+  $name.val('');
+  save_match_patterns(name, pattern);
+}
+
+function save_match_patterns(name, pattern)
+{
+  var current_patterns = get_local_storage();
+  current_patterns[name] = {'name' : name,
                             'active' : true,
-                            'pattern' : pattern };
+                            'pattern' : pattern};
   console.log(JSON.stringify(current_patterns));
   localStorage['match_patterns'] = JSON.stringify(current_patterns);
+  show_config();
 }
+
 function show_config()
 {
-  //TODO
+  $('#match_pattern_list tbody').empty();
+  var patterns = get_local_storage();
+  $.each(patterns, function(index, pattern)
+  {
+    var string = "<tr>";
+    string += '<td class="name">' + pattern.name + '</td>';
+    string += '<td>' + pattern.pattern + '</td>';
+    string += '<td><a class="delete" style="cursor:pointer;">Delete</a></td>';
+    string += '</tr>';
+    $('#match_pattern_list tbody').append(string);
+  });
+  $('.delete').click(function(e) {
+    delete_regexp($(this).parent().siblings('.name').text());
+  });
+}
+function delete_regexp(name)
+{
+  var current_patterns = get_local_storage();
+  delete current_patterns[name];
+  localStorage['match_patterns'] = JSON.stringify(current_patterns);
+  show_config();
 }
 $(document).ready(function() {
   $('button').click(save_options);
