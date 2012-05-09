@@ -53,6 +53,7 @@ function show_config()
     delete_regexp($(this).parent().siblings('.name').text());
   });
 }
+
 function delete_regexp(name)
 {
   var current_patterns = get_local_storage();

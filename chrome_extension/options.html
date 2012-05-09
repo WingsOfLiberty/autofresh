@@ -23,6 +23,9 @@
 <p>
   Add url match patterns here. If a url match pattern is active, all tabs whose url match that pattern will refresh when you save a file.
 </p>
+<p>
+  For example, entering "fedev.*?dwest.*" will match http://fedev.utah.trulia.com/~dwest/[any branch]/[any script]
+</p>
 <input type="text" name="match_pattern_name" placeholder="Regexp name (e.g., 'development', 'current branch', 'github project')"/>
 <br/>
 <input type="text" name="match_pattern" placeholder="Url Regexp"/>
@@ -30,8 +33,8 @@
 <button>Add</button>
 <table id="match_pattern_list">
   <thead>
-    <th>Regexp Name</th>
-    <th>Url Regexp</th>
+    <th>Name</th>
+    <th>Regexp</th>
     <th></th>
   </thead>
   <tbody>
