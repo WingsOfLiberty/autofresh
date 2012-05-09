@@ -1,9 +1,11 @@
 {
-  "name": "Autofresh",
-  "version": "1.1",
+  "name": "AutoFresh",
+  "version": "0.1",
   "manifest_version": 2,
   "description": "Autofresh: refreshes your web pages so you don't have to",
-  "icons" : { "128" : "icon-128.png" },
+  "icons" : { "128" : "icon-128.png",
+              "48"  : "icon-48.png",
+              "16"  : "icon-16.png" },
   "background_page" : "background.html",
   "options_page" : "options.html",
   "permissions": [
