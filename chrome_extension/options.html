@@ -1,45 +1,66 @@
 <html>
-<head><title>My Test Extension Options</title></head>
-<script src="jquery-1.7.2.min.js"></script>
-<script src="shared.js"></script>
-<script src="options.js"></script>
-<body>
-<style>
-  input {
-    width: 500px;
-  }
-  table {
-    border-collapse: collapse;
-  }
-  table, th, td {
-    border:1px solid green;
-    padding: 5px;
-  }
-  a {
-    color: blue;
-  }
-</style>
-<h1>Autofresh Configuration</h1>
-<p>
-  Add url match patterns here. If a url match pattern is active, all tabs whose url match that pattern will refresh when you save a file.
-</p>
-<p>
-  For example, entering "fedev.*?dwest.*" will match http://fedev.utah.trulia.com/~dwest/[any branch]/[any script]
-</p>
-<input type="text" name="match_pattern_name" placeholder="Regexp name (e.g., 'development', 'current branch', 'github project')"/>
-<br/>
-<input type="text" name="match_pattern" placeholder="Url Regexp"/>
-<br/>
-<button>Add</button>
-<table id="match_pattern_list">
-  <thead>
-    <th>Name</th>
-    <th>Regexp</th>
-    <th></th>
-  </thead>
-  <tbody>
-
-  </tbody>
-</table>
+<head>
+  <title>AutoFresh Options</title>
+  <script src="jquery-1.7.2.min.js"></script>
+  <script src="shared.js"></script>
+  <script src="options.js"></script>
+</head>
+<body style="float: left;">
+  <style>
+    body {
+      background-color: #999;
+      font-size: 16px;
+      min-width: 400px;
+    }
+    h1 {
+      text-shadow: #666 0.1em 0.1em 0.1em;
+    }
+    input {
+      width: 300px;
+      padding: 3px;
+      border-radius: 5px;
+    }
+    button {
+      font-weight: bold;
+      padding: 5px 10px;
+      border-radius: 5px;
+      background-color: #ccc;
+    }
+    table {
+      border-collapse: collapse;
+      min-width: 300px;
+    }
+    table, th, td {
+      border:1px solid #aaa;
+      padding: 5px;
+    }
+    th {
+      background-color: #bbb;
+    }
+    a {
+      color: blue;
+    }
+  </style>
+  <center><h1>AutoFresh Configuration</h1></center>
+  <p>
+    Add url match patterns here. If a url match pattern is active, all tabs whose url match that pattern will refresh when you save a file.
+  </p>
+  <p>
+    For example, entering "fedev.*?dwest.*" will match http://fedev.utah.trulia.com/~dwest/[any branch]/[any script]
+  </p>
+  <input type="text" name="match_pattern_name" placeholder="Regexp name (e.g., 'development')"/>
+  <br/>
+  <input type="text" name="match_pattern" placeholder="Url Regexp"/>
+  <br/>
+  <button>Add</button>
+  <table id="match_pattern_list">
+    <thead>
+      <th>Name</th>
+      <th>Regexp</th>
+      <th></th>
+    </thead>
+    <tbody>
+    </tbody>
+  </table>
 </body>
 </html>

@@ -3,10 +3,15 @@
   "version": "1.1",
   "manifest_version": 2,
   "description": "Autofresh: refreshes your web pages so you don't have to",
+  "icons" : { "128" : "icon-128.png" },
   "background_page" : "background.html",
   "options_page" : "options.html",
   "permissions": [
     "tabs",
     "http://*/*"
-  ]
+  ],
+  "browser_action": {
+    "default_popup": "options.html",
+    "default_icon" : "icon-128.png"
+  }
 }
