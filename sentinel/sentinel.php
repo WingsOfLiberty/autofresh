@@ -16,4 +16,5 @@ for($i = 0; $i < $max_tries; $i++)
   }
   usleep(250000);
 }
+header('Access-Control-Allow-Origin: *');
 echo json_encode(array("success" => $success));

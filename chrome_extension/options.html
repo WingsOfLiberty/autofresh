@@ -8,12 +8,12 @@
 <body style="float: left;">
   <style>
     body {
-      background-color: #999;
+      background-color: #eee;
       font-size: 16px;
       min-width: 400px;
     }
     h1 {
-      text-shadow: #666 0.1em 0.1em 0.1em;
+      text-shadow: #ccc 0.1em 0.1em 0.1em;
     }
     input {
       width: 300px;
@@ -24,11 +24,14 @@
       font-weight: bold;
       padding: 5px 10px;
       border-radius: 5px;
-      background-color: #ccc;
+      background-color: #fff;
     }
     table {
-      border-collapse: collapse;
       min-width: 300px;
+      border-collapse: collapse;
+    }
+    td {
+      min-width: 100px;
     }
     table, th, td {
       border:1px solid #aaa;
@@ -52,7 +55,7 @@
   <br/>
   <input type="text" name="match_pattern" placeholder="Url Regexp"/>
   <br/>
-  <button>Add</button>
+  <button class="add">Add</button>
   <table id="match_pattern_list">
     <thead>
       <th>Name</th>
@@ -62,5 +65,8 @@
     <tbody>
     </tbody>
   </table>
+  <br/>
+  <input type="text" name="sentinel_url" placeholder="Url for sentinel.php"/>
+  <button class="save">Save</button>
 </body>
 </html>

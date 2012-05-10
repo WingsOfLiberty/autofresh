@@ -52,6 +52,7 @@ function show_config()
   $('.delete').click(function(e) {
     delete_regexp($(this).parent().siblings('.name').text());
   });
+  $("input[name='sentinel_url']").val(localStorage['sentinel_url']);
 }
 
 function delete_regexp(name)
@@ -61,7 +62,20 @@ function delete_regexp(name)
   localStorage['match_patterns'] = JSON.stringify(current_patterns);
   show_config();
 }
+
+function save_sentinel(save_sentinel) 
+{
+  var sentinel_url = $.trim($("input[name='sentinel_url']").val());
+  if (sentinel_url === "")
+  {
+    return alert("AutoFresh will be turned off until a valid sentinel url is entered");
+  }
+  localStorage['sentinel_url'] = sentinel_url;
+  check();
+}
+
 $(document).ready(function() {
-  $('button').click(save_options);
+  $('button.add').click(save_options);
+  $('button.save').click(save_sentinel);
   show_config();
 });
