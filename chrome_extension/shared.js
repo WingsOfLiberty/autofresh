@@ -11,7 +11,7 @@ function get_local_storage()
   }
   return current_patterns;
 }
-
+var check_count = 0;
 var check = function()
 {
   if ($.trim(localStorage['sentinel_url']) === "" &&
@@ -26,11 +26,16 @@ var check = function()
               if (data.success)
               {
                 reload_tabs();
+              }
+              check_count++;
+              if (check_count < 100)
+              {
                 setTimeout(check, 1000);
               }
-              else if (data.success !== 0)
+              else
               {
-                alert("Invalid sentinel url, AutoFresh will not work.");
+                location.reload();
               }
             });
 };
+

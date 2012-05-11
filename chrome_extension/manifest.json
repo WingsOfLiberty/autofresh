@@ -10,7 +10,9 @@
   "options_page" : "options.html",
   "permissions": [
     "tabs",
-    "http://*/*"
+    "*://*/*",
+    "background",
+    "offline_enabled"
   ],
   "browser_action": {
     "default_popup": "options.html",

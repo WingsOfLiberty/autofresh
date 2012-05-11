@@ -71,7 +71,6 @@ function save_sentinel(save_sentinel)
     return alert("AutoFresh will be turned off until a valid sentinel url is entered");
   }
   localStorage['sentinel_url'] = sentinel_url;
-  check();
 }
 
 $(document).ready(function() {
