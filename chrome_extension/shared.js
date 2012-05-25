@@ -36,6 +36,8 @@ var check = function()
               {
                 location.reload();
               }
+            }).error(function() { 
+              location.reload();
             });
 };
 

@@ -1,6 +1,6 @@
 <?php
 
-$max_tries = 600;
+$max_tries = 60;
 for($i = 0; $i < $max_tries; $i++)
 {
   $result = trim(file_get_contents('sentinel.txt'));
@@ -14,7 +14,7 @@ for($i = 0; $i < $max_tries; $i++)
   {
     $success = 0;
   }
-  usleep(250000);
+  usleep(50000);
 }
 header('Access-Control-Allow-Origin: *');
 echo json_encode(array("success" => $success));
