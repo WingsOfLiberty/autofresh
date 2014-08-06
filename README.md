@@ -1,9 +1,41 @@
-autofresh
+AutoFresh
 =========
 
 :author David West
 :date 2012-05-09
 
-For web developers: auto-refreshes relevant browser tabs after saving a file
+For web developers: automatically refreshes relevant browser tabs after saving source code
 
-https://github.com/WingsOfLiberty/autofresh
+Features:
+  * Support for both VIM and Sublime text editors
+  * Easy to add support for other editors
+  * FREE!
+  * Battle-tested at Trulia
+  * Full power of regex to define the browser tabs to refresh
+  * Uses long-polling for near-instantaneous response to file saves
+
+AutoFresh Installation Instructions:
+
+1. Navigate to where you want to install. E.g., ~/chrome_extensions
+
+2. Download the extension:
+    Via Git: git clone git@github.com:WingsOfLiberty/autofresh.git
+    Via Direct Download: https://github.com/WingsOfLiberty/autofresh/zipball/master and unzip
+
+3. In chrome, open chrome://extensions/
+
+4. Click "Developer Mode" in the top right. 
+
+5. Click "Load unpacked extension" and navigate to the AutoFresh directory. Select the [autofresh]/chrome_extension directory which contains the unpacked extension, including a file named "manifest.json". Click "Select."  You should now see an alert that says, "AutoFresh requires a url path to sentinel.php". 
+
+6. Copy [autofresh]/sentinel to a web server running on the same machine as your code editor. E.g., scp sentinel/* [username]@[server]:~/public_html/sentinel/. Navigate to the public_html/sentinel directory and run "chmod 766 sentinel.txt" (Making sure Apache has write permissions).
+
+7. Click on the new Chrome extension icon at the top right of your browser next to the wrench widget. You will see an "AutoFresh Configuration" popup. For now, enter the domain name of your active development server in the first two text fields (first field is simply an identifier, the second is a regexp used to determine the tabs to refresh), and click "Add". Then enter the path to sentinel.php on your web server, e.g., http://[servername]/[username]/sentinel/sentinel.php and click "Save"
+
+8. Now open the [autofresh]/config directory. Select your editor's config file, e.g. "vim.config" and follow the editor-specific instructions therein. If you do not find your editor, please contribute a [your_editor].config file to the AutoFresh github repository. 
+
+9. Congrats, you're done! You may have to wait a minute or two for the extension to begin working; it uses long-polling and the most recent long-poll may have to complete before your .config editor changes kick in. To test it out, open up your editor and save a file and watch your page refresh.
+
+Troubleshooting: If things do not work after you finish, reload the extension. Go to chrome://extensions, click the tiny arrow next to AutoFresh to expand the developer options. Click "Reload."
+
+Email david@trulia.com if you have any questions or suggestions!
