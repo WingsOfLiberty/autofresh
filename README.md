@@ -1,6 +1,7 @@
 AutoFresh
 =========
 @author David West
+
 @date 2012-05-09
 
 For web developers: automatically refreshes relevant browser tabs after saving source code
